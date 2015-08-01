@@ -4,12 +4,16 @@ int dimen activity_vertical_margin 0x7f070001
 int drawable custom_btn_round_corners 0x7f020000
 int drawable ic_launcher 0x7f020001
 int drawable my_custom_btn 0x7f020002
-int id action_settings 0x7f090004
+int id MyListView 0x7f090006
+int id MySearchField 0x7f090005
+int id SearchButton 0x7f090004
+int id action_settings 0x7f090007
 int id bid_btn 0x7f090002
 int id current_price 0x7f090003
 int id desc 0x7f090001
 int id img 0x7f090000
 int layout bidpage_controller 0x7f030000
+int layout search_result_layout 0x7f030001
 int menu bidpage_controller 0x7f080000
 int string action_settings 0x7f050002
 int string app_name 0x7f050000

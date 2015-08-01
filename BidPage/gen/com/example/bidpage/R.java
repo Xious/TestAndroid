@@ -30,7 +30,10 @@ public final class R {
         public static final int my_custom_btn=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f090004;
+        public static final int MyListView=0x7f090006;
+        public static final int MySearchField=0x7f090005;
+        public static final int SearchButton=0x7f090004;
+        public static final int action_settings=0x7f090007;
         public static final int bid_btn=0x7f090002;
         public static final int current_price=0x7f090003;
         public static final int desc=0x7f090001;
@@ -38,6 +41,7 @@ public final class R {
     }
     public static final class layout {
         public static final int bidpage_controller=0x7f030000;
+        public static final int search_result_layout=0x7f030001;
     }
     public static final class menu {
         public static final int bidpage_controller=0x7f080000;
