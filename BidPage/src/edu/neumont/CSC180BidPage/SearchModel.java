@@ -22,4 +22,10 @@ public class SearchModel implements Model<SearchModel>
 		return bidPages;
 	}
 	
+	public void SetProducts(ArrayList<BidModel> productsList)
+	{
+		bidPages = productsList;
+		listener.update(this);
+	}
+	
 }

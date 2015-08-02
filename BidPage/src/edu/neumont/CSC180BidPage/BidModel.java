@@ -10,6 +10,13 @@ public class BidModel implements Model<BidModel>
 	private Model.Listener<BidModel> listener;
 	private Product thineProduct = new Product(0, "", "", 93.00);
 	
+	public BidModel(){};
+	
+	public BidModel(Product product)
+	{
+		thineProduct = product;
+	}
+	
 	public void setProduct(Product product)
 	{
 		double thineBid = product.getCurrentBid();

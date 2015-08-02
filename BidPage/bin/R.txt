@@ -15,6 +15,7 @@ int id img 0x7f090000
 int layout bidpage_controller 0x7f030000
 int layout search_result_layout 0x7f030001
 int menu bidpage_controller 0x7f080000
+int menu search_result_layout 0x7f080001
 int string action_settings 0x7f050002
 int string app_name 0x7f050000
 int string current_price_text 0x7f050003

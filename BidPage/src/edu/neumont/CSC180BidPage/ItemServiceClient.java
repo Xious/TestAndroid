@@ -6,18 +6,16 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
-import edu.neumont.search.AndPredicate;
-import edu.neumont.search.OrPredicate;
-import edu.neumont.search.Predicate;
-
 
 public class ItemServiceClient 
 {
 	private ArrayList<Product> allItems = new ArrayList<Product>();
-	private final String AND = "AND";
-	private final String OR = "OR";
-
-
+	
+	
+	public ArrayList<Product> getAllItems()
+	{
+		return allItems;
+	}
 
 	public Product bid(long id, BigDecimal bidAmount)
 	{
@@ -32,8 +30,6 @@ public class ItemServiceClient
 
 		return null;
 	}
-
-
 
 	public Set<Product> Search(String whatToSearch)
 	{
@@ -92,7 +88,7 @@ public class ItemServiceClient
 	public Predicate<String> CondenseAnds()
 	{
 		Predicate<String> tempAnd = null;
-		do
+		while(!operatorStack.isEmpty() && operatorStack.peek().toLowerCase().contentEquals("and"))		
 		{
 			if(tempAnd == null)
 			{
@@ -102,10 +98,9 @@ public class ItemServiceClient
 			{
 				tempAnd = new AndPredicate(tempAnd, new PredicateHandler(predicateStack.pop()));
 			}
-
 			operatorStack.pop();
 		}
-		while(operatorStack.peek().toLowerCase().contentEquals("and"));
+		
 		allPredicates.add(tempAnd);
 
 		return tempAnd;
@@ -116,11 +111,9 @@ public class ItemServiceClient
 	{
 		Predicate<String> tempOr = null;
 
-
-
-		if(predicateStack.isEmpty())
+		if(!operatorStack.isEmpty() && predicateStack.isEmpty())
 		{
-			do
+			while(operatorStack.peek().toLowerCase().contentEquals("or"))
 			{
 				if(tempOr == null)
 				{
@@ -132,15 +125,15 @@ public class ItemServiceClient
 				}
 				operatorStack.pop();
 			}
-			while(operatorStack.peek().toLowerCase().contentEquals("or"));
+			
 			allPredicates.add(tempOr);
 		}
 
-		else
+		else if(!operatorStack.isEmpty())
 		{
 			if(allPredicates.isEmpty())
 			{
-				do
+				while(operatorStack.peek().toLowerCase().contentEquals("or"))
 				{
 					if(tempOr == null)
 					{
@@ -150,15 +143,14 @@ public class ItemServiceClient
 					{
 						tempOr = new OrPredicate(tempOr, new PredicateHandler(predicateStack.pop()));
 					}
-
 					operatorStack.pop();
 				}
-				while(operatorStack.peek().toLowerCase().contentEquals("or"));
+				
 				allPredicates.add(tempOr);
 			}
 			else
 			{
-				do
+				while(operatorStack.peek().toLowerCase().contentEquals("or"))
 				{
 					if(tempOr == null)
 					{
@@ -172,10 +164,9 @@ public class ItemServiceClient
 					{
 						tempOr = new OrPredicate(tempOr, allPredicates.pop());
 					}
-
 					operatorStack.pop();
 				}
-				while(operatorStack.peek().toLowerCase().contentEquals("or"));
+				
 				allPredicates.add(tempOr);
 			}
 		}

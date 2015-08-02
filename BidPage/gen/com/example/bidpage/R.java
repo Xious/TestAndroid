@@ -45,6 +45,7 @@ public final class R {
     }
     public static final class menu {
         public static final int bidpage_controller=0x7f080000;
+        public static final int search_result_layout=0x7f080001;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;

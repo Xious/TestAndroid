@@ -33,6 +33,7 @@ public class BidView extends RelativeLayout implements View<BidModel>, Model.Lis
 	private Animation thineAnimation;
 	private Listener thineListener;
 	private ImageView thineImage;
+	private BidModel myBidModel;
 	
 	
 	public BidView(Context thineContext, AttributeSet thineAttrs) 
@@ -45,6 +46,11 @@ public class BidView extends RelativeLayout implements View<BidModel>, Model.Lis
 	{
 		void placeBid(double amount);
 		void setDefaultValues(Product product);
+	}
+	
+	public BidModel getBidModel()
+	{
+		return myBidModel;
 	}
 	
 	@Override
@@ -74,6 +80,7 @@ public class BidView extends RelativeLayout implements View<BidModel>, Model.Lis
 	{
 		DecimalFormat decimalFormat = new DecimalFormat("0.00");
 		thineCurrentPrice.setText("Subject Price: $" + decimalFormat.format(thineData.getProduct().getCurrentBid()));
+		myBidModel = thineData;
 	}
 	
 	@Override

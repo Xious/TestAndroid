@@ -10,6 +10,11 @@ public class MainActivity extends Controller<BidModel> implements BidView.Listen
 	{
 		super(new BidModel(), "bidpage_controller");
 	}
+	
+	public MainActivity(Product product)
+	{
+		super(new BidModel(product), "bidpage_controller");
+	}
 
 	@Override
 	public void setDefaultValues(Product thineProduct) 

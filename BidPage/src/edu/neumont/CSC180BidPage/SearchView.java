@@ -74,14 +74,12 @@ public class SearchView extends LinearLayout implements View<SearchModel>, OnIte
 	public void updateDesc(SearchModel data) 
 	{
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void updateImg(SearchModel data) 
 	{
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

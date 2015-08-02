@@ -1,6 +1,6 @@
 package edu.neumont.CSC180BidPage;
 
-import edu.neumont.search.Predicate;
+import edu.neumont.CSC180BidPage.Predicate;
 
 public class PredicateHandler<T extends String> implements Predicate<T>
 {
